@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Coding Phoenix</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<!-- My CSS -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<!-- My Mediaqueries -->
+	<link rel="stylesheet" type="text/css" href="mediaquery.css">	
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar bg-transparent">
+		<div class="container px-5">
+		    <a class="navbar-brand" href="#">
+		      <img class="logo" src="images\logo.png" alt="The Coding Phoenix">
+		    </a>
+		    <a href="https://mailchi.mp/514f1e72d3a2/thecodingphoenix">
+		    	<button class="d-flex btn btn-danger" type="submit">Subscribe</button>
+		    </a>
+  		</div>
+	</nav>
+
+	<!-- Hero -->
+	<div class="bg-transparent text-secondary px-4 py-5 text-center hero">
+	    <div class="content background">
+	    	<h3 class="text-white">Igniting Digital Success</h3>
+	    	<h1>Coming Soon</h1>
+	      	<div class="launch-timer">
+	      		<div>
+	      			<p id="days">00</p>
+	      			<span>Days</span>
+	      		</div>
+	      		<div>
+	      			<p id="hours">00</p>
+	      			<span>Hours</span>
+	      		</div>
+	      		<div>
+	      			<p id="minutes">00</p>
+	      			<span>Minutes</span>
+	      		</div>
+	      		<div>
+	      			<p id="seconds">00</p>
+	      			<span>Seconds</span>
+	      		</div>
+	      	</div>
+	    </div>
+  	</div>
+
+  	<!-- countdown JS-->
+  	<script>
+  		function updateCountdown() {
+  			var releaseDate = new Date("Jul 31,2024 00:00:00").getTime();
+  			var timerInterval = setInterval(function () {
+  				var currentTime = new Date().getTime();
+  				var timeRemaining = releaseDate - currentTime;
+
+  				var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  				var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  				var minutes =  Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  				var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+  				
+  				if (timeRemaining < 0) {
+  					clearInterval(timerInterval);
+  					resetDisplay();
+  				}
+  				else {
+  					updateDisplay(days,hours,minutes,seconds);
+  				}
+  			}, 1000);
+  		}
+
+  		function updateDisplay(days, hours, minutes, seconds){
+  			document.getElementById("days").innerHTML = formatTimeUnit(days);
+  			document.getElementById("hours").innerHTML = formatTimeUnit(hours);
+  			document.getElementById("minutes").innerHTML = formatTimeUnit(minutes);
+  			document.getElementById("seconds").innerHTML = formatTimeUnit(seconds);
+  		}
+
+  		function resetDisplay(){
+  			document.getElementById("days").innerHTML = "00";
+  			document.getElementById("hours").innerHTML = "00";
+  			document.getElementById("minutes").innerHTML = "00";
+  			document.getElementById("seconds").innerHTML = "00";
+  		}
+
+  		function formatTimeUnit(unit){
+  			return unit < 10 ? "0" + unit : unit.toString();
+  		}
+
+  		updateCountdown();
+  	</script>
+</body>
+</html>

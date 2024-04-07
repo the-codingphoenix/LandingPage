@@ -1,0 +1,56 @@
+@media (max-width: 1024px) {
+	.logo{
+		width: 100px;
+	}
+	h3 {
+		font-size: 1.6rem;
+	}
+	h1 {
+		font-size: 5rem;
+		background-position: -750px 0;
+	}
+	.launch-timer span {
+		font-size: 1.3rem;
+	}
+	.launch-timer p {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 767px) {
+	.logo{
+		width: 100px;
+	}
+	h3 {
+		font-size: 1.3rem;
+	}
+	h1 {
+		font-size: 3.1rem;
+		background-position: -650px 0;
+	}
+	.launch-timer span {
+		font-size: 1rem;
+	}
+	.launch-timer p {
+		font-size: 30px;
+	}
+
+}
+
+/*@media (max-width: 480px) {
+	.logo{
+		width: 100px;
+	}
+	h3 {
+		font-size: 1.2rem;
+	}
+	h1 {
+		font-size: 3rem;
+	}
+	.launch-timer span {
+		font-size: 1rem;
+	}
+	.launch-timer p {
+		font-size: 20px;
+	}
+}*/
